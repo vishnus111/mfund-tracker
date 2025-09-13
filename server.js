@@ -23,6 +23,7 @@ updateNavJob();
 import authRoutes from "./src/routes/authRoutes.js";
 import portfolioRoutes from  "./src/routes/portfolioRoutes.js";
 import fundRoutes from "./src/routes/fundRoutes.js"
+import { apiLimiter } from "./src/middlewares/rateLimiter.js";
 
 
 
@@ -42,6 +43,7 @@ app.get("/", (req, res) => res.send("API running"));
 
 
 // Routes
+app.use("/api",apiLimiter)
 app.use("/api/auth", authRoutes);
 app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/admin", adminRoutes);
