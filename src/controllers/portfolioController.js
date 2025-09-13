@@ -3,7 +3,7 @@ import { FundNavHistory } from "../models/FundNavHistory.js";
 import {FundLatestNav} from "../models/FundLatestNav.js";
 import {Fund} from "../models/Fund.js";
 
-// 📌 Add fund to portfolio
+//  Add fund to portfolio
 const addFundToPortfolio = async (req, res) => {
   try {
     const { schemeCode, units } = req.body;
@@ -34,7 +34,7 @@ const addFundToPortfolio = async (req, res) => {
   }
 };
 
-// 📌 List user’s portfolio
+//  List user’s portfolio
 const listPortfolio = async (req, res) => {
   try {
     const portfolio = await Portfolio.find({ userId: req.user.id });
@@ -44,7 +44,7 @@ const listPortfolio = async (req, res) => {
   }
 };
 
-// 📌 Get portfolio value
+//  Get portfolio value
 const getPortfolioValue = async (req, res) => {
   try {
     const portfolio = await Portfolio.find({ userId: req.user.id });
@@ -92,7 +92,7 @@ const getPortfolioValue = async (req, res) => {
   }
 };
 
-// 📌 Remove fund from portfolio
+//  Remove fund from portfolio
 const removeFundFromPortfolio = async (req, res) => {
   try {
     const { schemeCode } = req.params;
@@ -108,7 +108,7 @@ const removeFundFromPortfolio = async (req, res) => {
   }
 };
 
-// 📌 Get portfolio history (last 30 days or custom range)
+//  Get portfolio history (last 30 days or custom range)
 const getPortfolioHistory = async (req, res) => {
     try {
       const { startDate, endDate } = req.query;

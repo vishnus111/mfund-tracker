@@ -3,7 +3,7 @@ import { Portfolio } from "../models/Portfolio.js";
 import { Fund } from "../models/Fund.js";
 
 
-// 📌 Get all users
+//  Get all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({}, "-passwordHash"); // exclude passwords
@@ -13,7 +13,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-// 📌 Get all portfolios
+//  Get all portfolios
 const getAllPortfolios = async (req, res) => {
   try {
     const portfolios = await Portfolio.find().populate("userId", "name email");
@@ -51,7 +51,7 @@ const getPopularFunds = async (req, res) => {
   }
 };
 
-// 📌 System statistics
+//  System statistics
 const getSystemStats = async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();

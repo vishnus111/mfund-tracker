@@ -1,11 +1,9 @@
 import { Fund } from "../models/Fund.js";
 import { FundLatestNav } from "../models/FundLatestNav.js";
 import { FundNavHistory } from "../models/FundNavHistory.js";
-// const Fund = require("../models/Fund");
-// const FundLatestNav = require("../models/FundLatestNav");
-// const FundNavHistory = require("../models/FundNavHistory");
 
-// 📌 Get list of funds with search + pagination
+
+//  Get list of funds with search + pagination
 const getFunds = async (req, res) => {
   try {
     const { search = "", page = 1, limit = 20 } = req.query;
@@ -37,7 +35,7 @@ const getFunds = async (req, res) => {
   }
 };
 
-// 📌 Get NAV history for a specific fund
+//  Get NAV history for a specific fund
 const getFundNavHistory = async (req, res) => {
   try {
     const { schemeCode } = req.params;

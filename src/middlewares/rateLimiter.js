@@ -1,6 +1,6 @@
 import rateLimit from "express-rate-limit";
 
-// 🔹 1. Login limiter → 5 attempts per minute per IP
+// . Login limiter → 5 attempts per minute per IP
 export const loginLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 5,
@@ -12,7 +12,7 @@ export const loginLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// 🔹 2. General API limiter → 100 requests per minute per user
+// . General API limiter → 100 requests per minute per user
 export const apiLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 100,
@@ -25,7 +25,7 @@ export const apiLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// 🔹 3. Portfolio update limiter → 10 updates per minute per user
+// . Portfolio update limiter → 10 updates per minute per user
 export const portfolioUpdateLimiter = rateLimit({
   windowMs: 1 * 60 * 1000,
   max: 10,
