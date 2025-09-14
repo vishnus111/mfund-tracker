@@ -41,6 +41,9 @@ export default function Register() {
             placeholder="Password"
             className="w-full p-2 rounded bg-gray-700"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            title="Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character, and be at least 8 characters long."
+            required
           />
           <button className="w-full bg-yellow-500 text-black py-2 rounded font-semibold hover:bg-yellow-600">
             Register
