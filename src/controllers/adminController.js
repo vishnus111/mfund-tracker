@@ -6,7 +6,7 @@ import { Fund } from "../models/Fund.js";
 //  Get all users
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find({}, "-passwordHash"); // exclude passwords
+    const users = await User.find({}, "-passwordHash"); 
     res.json({ success: true, data: users });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
@@ -23,7 +23,7 @@ const getAllPortfolios = async (req, res) => {
   }
 };
 
-// 📌 Most popular funds (most invested by users)
+//  Most popular funds most invested by users
 const getPopularFunds = async (req, res) => {
   try {
     const popularFunds = await Portfolio.aggregate([

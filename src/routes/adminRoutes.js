@@ -11,7 +11,7 @@ const {
 
 const router = express.Router();
 
-// All routes need authentication + admin role
+
 router.get("/users", auth, adminOnly, getAllUsers);
 router.get("/portfolios", auth, adminOnly, getAllPortfolios);
 router.get("/popular-funds", auth, adminOnly, getPopularFunds);

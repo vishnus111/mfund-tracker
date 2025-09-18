@@ -7,24 +7,24 @@ import fetchLatestNAV from "./fetchNAV.js"
 
 // Update NAV for all portfolio funds
 async function updateNavJob() {
-  console.log("⏳ Starting daily NAV update...");
+  console.log(" Starting daily NAV update...");
 
   try {
-    // 1. Get all unique scheme codes in portfolios
+    //  Get all unique scheme codes in portfolios
     const portfolioSchemes = await Portfolio.distinct("schemeCode");
 
     for (const schemeCode of portfolioSchemes) {
       const latestNav = await fetchLatestNAV(schemeCode);
       if (!latestNav) continue;
 
-      // 2. Update fund_latest_nav
+      // Update fund latest nav
       await FundLatestNav.findOneAndUpdate(
         { schemeCode },
         { nav: latestNav.nav, date: latestNav.date, updatedAt: new Date() },
         { upsert: true }
       );
 
-      // 3. Add to fund_nav_history
+      //  Add to fundnavhistory
       const exists = await FundNavHistory.findOne({
         schemeCode,
         date: latestNav.date
@@ -47,8 +47,8 @@ async function updateNavJob() {
   }
 }
 
-// Schedule job: every day at 12:00 AM IST
+
 cron.schedule("0 0 * * *", updateNavJob);
 
-// module.exports = { updateNavJob };
+
 export default updateNavJob

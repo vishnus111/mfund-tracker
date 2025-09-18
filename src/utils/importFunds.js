@@ -24,9 +24,9 @@ async function importFunds() {
       );
     }
 
-    console.log("✅ Fund list imported successfully");
+    console.log(" Fund list imported successfully");
   } catch (err) {
-    console.error("❌ Fund import failed:", err.message);
+    console.error(" Fund import failed:", err.message);
   }
 }
 export default   importFunds ;

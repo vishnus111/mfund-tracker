@@ -15,7 +15,7 @@ console.log("JWT_SECRET Loaded:", process.env.JWT_SECRET ? "Yes" : "No");
 updateNavJob();
 
 
-//Uncomment this to seed fund list into DB
+
 // import importFunds from "./src/utils/importFunds.js"
 // importFunds();
 
@@ -35,7 +35,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use((req, res, next) => {
-    console.log("➡️ Incoming request:", req.method, req.url, req.body);
+    console.log(" Incoming request:", req.method, req.url, req.body);
     next();
   });
 

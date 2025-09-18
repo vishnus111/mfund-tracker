@@ -7,7 +7,7 @@ const {
 
 const router = express.Router();
 
-router.get("/", getFunds); // /api/funds?search=bluechip&page=1&limit=20
+router.get("/", getFunds); 
 router.get("/:schemeCode/nav", getFundNavHistory);
 
 export default  router;

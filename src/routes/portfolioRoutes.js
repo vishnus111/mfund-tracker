@@ -10,13 +10,13 @@ const { addFundToPortfolio, removeFundFromPortfolio,listPortfolio,getPortfolioVa
 
 const router = express.Router();
 
-// Protected routes (need JWT)
+
 router.post("/add", auth,portfolioUpdateLimiter, addFundToPortfolio);
 router.get("/list", auth, listPortfolio);
 router.get("/value", auth, getPortfolioValue);
 router.get("/history", auth, getPortfolioHistory);
 router.delete("/remove/:schemeCode", auth,portfolioUpdateLimiter, removeFundFromPortfolio);
 
-// module.exports = router;
+
 
 export default router

@@ -9,14 +9,14 @@ async function fetchLatestNAV(schemeCode) {
       throw new Error("No NAV data available");
     }
 
-    const latestEntry = data.data[0]; // latest NAV is first entry
+    const latestEntry = data.data[0]; 
     return {
       schemeCode,
       nav: parseFloat(latestEntry.nav),
       date: latestEntry.date
     };
   } catch (error) {
-    console.error(`❌ Failed to fetch NAV for ${schemeCode}:`, error.message);
+    console.error(` Failed to fetch NAV for ${schemeCode}:`, error.message);
     return null;
   }
 }

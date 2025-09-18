@@ -56,7 +56,7 @@ const getPortfolioValue = async (req, res) => {
       const latestNav = await FundLatestNav.findOne({ schemeCode: p.schemeCode });
       if (!latestNav) continue;
 
-      const investedValue = p.units * 10; // 📌 placeholder (assuming ₹10 NAV at purchase)
+      const investedValue = p.units * 10; 
       const currValue = p.units * latestNav.nav;
       const profitLoss = currValue - investedValue;
 
@@ -143,7 +143,7 @@ const getPortfolioHistory = async (req, res) => {
         }
       }
   
-      // calculate profit/loss against invested value (assuming ₹10 NAV at purchase)
+      
       const investedValue = portfolio.reduce((sum, p) => sum + (p.units * 10), 0);
   
       const responseData = Object.values(historyMap).map(h => ({
